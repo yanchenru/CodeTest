@@ -1,0 +1,68 @@
+﻿@model QueryResults
+
+@{
+    ViewData["Title"] = "Query Results";
+}
+
+<p>
+    <h2>Database A</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    AccountNo
+                </th>
+                <th>
+                    WithdrawalDate
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AccountAs)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WithdrawalDate)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>
+<p>
+    <h2>Database B</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    AccountNo
+                </th>
+                <th>
+                    WithdrawalDate
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AccountBs)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WithdrawalDate)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>
+
+<div>
+    <a asp-action="QueryAccount">Back to Query</a>
+</div>

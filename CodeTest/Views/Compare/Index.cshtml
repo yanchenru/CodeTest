@@ -1,0 +1,72 @@
+﻿@model QueryResults
+
+@{
+    ViewData["Title"] = "Compare";
+}
+
+<h2>Compare</h2>
+
+<p>
+    <h2>Database A</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    AccountNo
+                </th>
+                <th>
+                    WithdrawalDate
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AccountAs)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WithdrawalDate)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>
+<p>
+    <h2>Database B</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    AccountNo
+                </th>
+                <th>
+                    WithdrawalDate
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AccountBs)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WithdrawalDate)
+                </td>
+                @if (!item.WithdrawalDate.Equals(Model.AccountAs.Find(x => x.AccountNo == item.AccountNo).WithdrawalDate))
+                {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" asp-route-accountNo="@item.AccountNo" asp-route-withdrawalDate="@Model.AccountAs.Find(x => x.AccountNo == item.AccountNo).WithdrawalDate">Update from Database A</a>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</p>

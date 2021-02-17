@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2>Introduction</h2>
+    This is a quick list of requirements for a Data Reconciliation application we would like you to write in .net.
+    <br />
+
+    <h2>Code Test: Data Reconciliation and Refresh</h2>
+
+    <p>We are in need of a simple data reconciliation tool to align two databases data. The data is bank account number, and automatic withdrawal date.</p>
+
+    <br />
+    We need to be able to:
+    <ul>
+        <li>Query two separate databases (Database A and Database B) by account number and retrieve automatic withdrawal date.</li>
+
+        <li>Compare automatic withdrawal date for each account between Database A and B.</li>
+
+        <li>Database A is source of truth if withdrawal data in Database B does not match update database B with webservice call.</li>
+    </ul>
+
+    <br />
+    <p>
+        Deliverables: Code and Method of Procedure for deployment.
+    </p>
+    <br />
+
+    Samples:
+    <br />
+    Database A:
+    <br />
+    <table>
+        <tr>
+            <th>
+                Account_No
+            </th>
+            <th>
+                Withdrawal_date
+            </th>
+        </tr>
+        <tr>
+            <td>
+                077088022
+            </td>
+            <td>
+                September 6
+            </td>
+        </tr>
+        <tr>
+            <td>
+                847088992
+            </td>
+            <td>
+                January 17
+            </td>
+        </tr>
+        <tr>
+            <td>224434465</td>
+            <td>March 7</td>
+        </tr>
+        <tr>
+            <td>557775443</td>
+            <td>July 30</td>
+        </tr>
+    </table>
+    <br />
+    Database B:
+    <br />
+    <table>
+        <tr><th>Account_No</th><th>Withdrawal_date</th></tr>
+        <tr><td>077088022</td><td>September 6</td></tr>
+        <tr><td>847088992</td><td>August 17</td></tr>
+        <tr><td>224434465</td><td>June 7</td></tr>
+        <tr><td>557775443</td><td>February 30</td></tr>
+    </table>
+
+    <br />
+    REST Sample:
+    <h2>Update Account Data</h2>
+    Used to update the withdrawal date for an account.
+    <br />
+    <br />
+    •	Request:
+    <br />
+    <ul>
+        <li>
+            Method: POST
+        </li>
+        <li>
+            URI: &lt;base_uri&gt;/Account/{accountNumber}
+        <li>
+            Body:
+        </li>
+    </ul>
+    <br />
+
+    <div float: left;
+         padding: 20px;
+         width: 70%;
+         background-color: #f1f1f1;>
+        &lt;account xmlns="http://services.sjrb.ad/account"&gt;
+        &lt;withdrawal&gt;
+        &lt;date>MM/DD&lt;/date&gt;
+        &lt;withdrawal&gt;
+        &lt;/account&gt;
+    </div>
+
+    <br />
+    <br />
+    <br />
+    © 2021 Shaw Communications Inc. All rights reserved.
+
+</div>
